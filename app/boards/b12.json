@@ -1,0 +1,31 @@
+{
+    "id": 12,
+    "category": "blue",
+    "walls" : [
+        {"y": 0, "x": 4, "dir": "right"},
+        {"y": 4, "x": 0, "dir": "down"},
+
+        {"y": 1, "x": 2, "dir": "left"},
+        {"y": 1, "x": 2, "dir": "up"},
+
+        {"y": 3, "x": 6, "dir": "down"},
+        {"y": 3, "x": 6, "dir": "left"},
+        
+        {"y": 5, "x": 4, "dir": "up"},
+        {"y": 5, "x": 4, "dir": "right"},
+
+        {"y": 6, "x": 1, "dir": "down"},
+        {"y": 6, "x": 1, "dir": "right"},
+
+        {"y": 7, "x": 7, "dir": "up"},
+        {"y": 7, "x": 7, "dir": "left"}
+    ], 
+    "mirrors" : [
+    ],
+    "marks" : [
+        {"y": 1, "x": 2, "shape": "circle", "color":"yellow"},
+        {"y": 3, "x": 6, "shape": "triangle", "color":"blue"},
+        {"y": 5, "x": 4, "shape": "rectangle", "color":"red"},
+        {"y": 6, "x": 1, "shape": "hexagon", "color":"green"}
+    ]
+}

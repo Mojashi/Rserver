@@ -1,0 +1,30 @@
+{
+    "id": 3,
+    "category": "yellow",
+    "walls" : [
+        {"y": 0, "x": 4, "dir": "right"},
+        {"y": 4, "x": 0, "dir": "down"},
+
+        {"y": 1, "x": 2, "dir": "right"},
+        {"y": 1, "x": 2, "dir": "down"},
+        {"y": 3, "x": 1, "dir": "left"},
+        {"y": 3, "x": 1, "dir": "down"},
+        {"y": 4, "x": 6, "dir": "up"},
+        {"y": 4, "x": 6, "dir": "left"},
+        {"y": 6, "x": 5, "dir": "up"},
+        {"y": 6, "x": 5, "dir": "right"},
+        {"y": 7, "x": 3, "dir": "right"},
+        {"y": 7, "x": 3, "dir": "down"},
+
+        {"y": 7, "x": 7, "dir": "up"},
+        {"y": 7, "x": 7, "dir": "left"}
+    ], 
+    "mirrors" : [],
+    "marks" : [
+        {"y": 4, "x": 6, "shape": "triangle", "color":"yellow"},
+        {"y": 1, "x": 2, "shape": "hexagon", "color":"red"},
+        {"y": 6, "x": 5, "shape": "circle", "color":"blue"},
+        {"y": 3, "x": 1, "shape": "rectangle", "color":"green"},
+        {"y": 7, "x": 3, "shape": "any", "color":"any"}
+    ]
+}
