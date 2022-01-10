@@ -29,6 +29,7 @@ import kotlinx.atomicfu.AtomicInt
 import kotlinx.coroutines.sync.Mutex
 import java.util.concurrent.atomic.AtomicInteger
 import ch.qos.logback.classic.Logger
+import java.io.File
 
 @Serializable
 data class SolveRequest (
@@ -45,6 +46,9 @@ fun main(args: Array<String>) {
             get("/") {
                 call.respondText("Hello World!", ContentType.Text.Plain)
             };
+            get("/privacy-policy") {
+                call.respondFile(File("policy.html"))
+            }
             get("/random") {
                 val problem = Problem (
                     listOf(Color.Blue,Color.Red,Color.Yellow,Color.Green).shuffled().map{cat ->
