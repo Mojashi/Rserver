@@ -1,7 +1,7 @@
 FROM gradle:jdk11-alpine
 
 RUN apk update
-RUN apk add g++
+RUN apk add g++ bash
 RUN mkdir /app
 WORKDIR /app
 COPY app .
