@@ -88,7 +88,11 @@ fun slide(cells: CellBoard, poss: Map<Color, Pos>, hand: Hand): List<Pos>? {
         return wallCol || pieceCol
     }
 
+    val al = mutableSetOf<Pos>()
+
     while(!collid()) {
+        if(al.contains(cur)) return null
+        al.add(cur)
         val vec = curDir.getVec()
         cur = Pos((cur.x + vec.second+16)%16, (cur.y + vec.first+16)%16)
         cells.cells[cur.y][cur.x].mirror?.let { 
