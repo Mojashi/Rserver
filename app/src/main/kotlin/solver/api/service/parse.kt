@@ -84,7 +84,7 @@ fun slide(cells: CellBoard, poss: Map<Color, Pos>, hand: Hand): List<Pos>? {
 
     fun collid():Boolean {
         val vec = curDir.getVec()
-        val nex = Pos(cur.x + vec.second, cur.y + vec.first)
+        val nex = Pos((cur.x + vec.second+16)%16, (cur.y + vec.first+16)%16)
         val wallCol = cells.cells[cur.y][cur.x].walls[curDir] ?: false
         val pieceCol = poss.any{(color,pos)->
             color != hand.color && nex == pos
@@ -92,15 +92,18 @@ fun slide(cells: CellBoard, poss: Map<Color, Pos>, hand: Hand): List<Pos>? {
         return wallCol || pieceCol
     }
 
+    val al = mutableSetOf<Pair<Pos,Direction>>()
+
     while(!collid()) {
         val vec = curDir.getVec()
         cur = Pos((cur.x + vec.second+16)%16, (cur.y + vec.first+16)%16)
         cells.cells[cur.y][cur.x].mirror?.let { 
-            if(it.color != hand.color){
-                curDir = it.dir.reflect(curDir)
-                history += cur
-            }
+            curDir = it.dir.reflect(curDir)
+            history += cur
         }
+
+        if(al.contains(cur to curDir)) return null
+        al.add(cur to curDir)
     }
 
     return history + cur
