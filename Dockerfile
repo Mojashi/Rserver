@@ -7,5 +7,5 @@ WORKDIR /app
 COPY app .
 
 RUN cd ./solver; g++ solver_g.cpp -O3 -o solver_g
-# RUN gradle run
+RUN gradle build
 CMD ["gradle", "run"]
