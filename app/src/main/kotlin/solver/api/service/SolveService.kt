@@ -105,14 +105,16 @@ class SolveService() {
         val goal = findGoal(board, problem)
         goal ?: throw BadRequestException("goal doesnt exist")
 
-        if(problem.piecePoss.size != 5) 
+        if(problem.piecePoss.size < 4 || problem.piecePoss.size != 5 && problem.piecePoss.keys.contains(Color.Black)) 
             throw BadRequestException("insufficient number of pieces")
 
         val sb = StringBuilder()
 
         sb.append(bpStringify(board))
 
-        problem.piecePoss.toList().sortedBy { it.first.ordinal }.forEach {(_,pos) ->
+        listOf(Color.Blue,Color.Red,Color.Yellow,Color.Green,Color.Black).sortedBy { it.ordinal }.map{
+            problem.piecePoss.getOrDefault(it, Pos(7,7))
+        }.forEach {pos ->
             sb.append("${pos.y} ${pos.x}\n")
         }
         sb.append("${if(problem.mark.color==Color.Any) -1 else problem.mark.color.ordinal}\n")
